@@ -1,0 +1,18 @@
+syntax = "proto3";
+package account.v1;
+
+import "account/v1/user.proto";
+
+service AccountService {
+  // Describe a specified user by user id
+  // if the user doesn't exist, this procedure will return not found error
+  rpc DescribeUser(DescribeUserRequest) returns (DescribeUserResponse) {}
+}
+
+message DescribeUserRequest {
+  UserID id = 1;
+}
+
+message DescribeUserResponse {
+  User user = 1;
+}
